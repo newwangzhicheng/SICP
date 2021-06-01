@@ -1,0 +1,13 @@
+#lang sicp
+(define (exp b n)
+  (exp-iter b n 1))
+(define (exp-iter b n product)
+  (cond ((= n 0) product)
+        ((even? n) (exp-iter (square b) (/ n 2) product))
+        ((odd? n) (exp-iter b (- n 1) (* product b)))))
+(define (square x)
+  (* x x))
+(define (even? x)
+  (= (remainder x 2) 0))
+(define (odd? x)
+  (= (remainder x 2) 1))
