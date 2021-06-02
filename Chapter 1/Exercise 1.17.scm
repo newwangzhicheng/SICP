@@ -5,10 +5,9 @@
   (/ n 2))
 ; 自己写
 (define (* a b)
-  (multi-iter a b a 0))
-(define (multi-iter a b n product)
-  (cond ((or (= a 0) (= b 0)) 0)
-        ((= n 0) product)
+  (multi-iter a b 0))
+(define (multi-iter a b product)
+  (cond ((= b 0) 0)
         ((even? n) (multi-iter a (double b) (halve n) product))
         ((odd? n) (multi-iter a b (- n 1) (+ product b)))))
 
